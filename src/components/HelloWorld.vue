@@ -1,143 +1,127 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br />
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener"
-        >vue-cli documentation</a
-      >.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-pwa"
-          target="_blank"
-          rel="noopener"
-          >pwa</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router"
-          target="_blank"
-          rel="noopener"
-          >router</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-vuex"
-          target="_blank"
-          rel="noopener"
-          >vuex</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest"
-          target="_blank"
-          rel="noopener"
-          >unit-jest</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-e2e-cypress"
-          target="_blank"
-          rel="noopener"
-          >e2e-cypress</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-typescript"
-          target="_blank"
-          rel="noopener"
-          >typescript</a
-        >
-      </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
+  <div class="col-8 m-1 p-1">
+    <div class="row m-1 p-1">
+      <div class="col m-1 p-1">
+        <div class="card border-primary mh-card">
+          <div class="card-body">
+            <h4 class="card-title">Список задач</h4>
+            <button class="btn btn-primary">
+              Добавить <span class="badge bg-primary">+</span>
+            </button>
+            <!--  -->
+            <div class="card border-primary m-1 p-1">
+              <div class="card-body">
+                <p>alfa</p>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+        </div>
+      </div>
+      <div class="col m-1 p-1">
+        <div class="card border-primary mh-card">
+          <div class="card-body">
+            <h4 class="card-title">Список приоритетных задач</h4>
+            <button class="btn btn-primary">
+              Добавить <span class="badge bg-primary">+</span>
+            </button>
+            <!--  -->
+            <div class="card border-danger m-1 p-1">
+              <div class="card-body">
+                <p>gamma</p>
+              </div>
+            </div>
+            <!--  -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row m-1 p-1">
+      <div class="row m-1 p-1">
+        <div class="col p-1 m-1">
+          <div class="card border-secondary border-dashed mh-card">
+            <div class="card-body">
+              <h4 class="card-title">Backlog</h4>
+              <!-- slot -->
+            </div>
+          </div>
+        </div>
+        <div class="col-1 align-middle d-flex">
+          <ArrowRight />
+        </div>
+        <div class="col p-1 m-1">
+          <div class="card border-secondary border-dashed mh-card">
+            <div class="card-body">
+              <h4 class="card-title">Сбор данных</h4>
+              <!-- slot -->
+              <div class="card border-primary m-1 p-1">
+                <div class="card-body">
+                  <p>alfa</p>
+                </div>
+              </div>
+              <div class="card border-primary m-1 p-1">
+                <div class="card-body">
+                  <p>beta</p>
+                </div>
+              </div>
+              <div class="card border-primary m-1 p-1 border-dashed">
+                <div class="card-body"></div>
+              </div>
+              <!--  -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row m-1 p-1">
+        <div class="col">
+          <ArrowUp class="pic-arrow" />
+          <!--  -->
+        </div>
+        <div class="col-1"></div>
+        <div class="col">
+          <ArrowDown class="pic-arrow" />
+        </div>
+      </div>
+      <div class="row m-1 p-1">
+        <div class="col p-1 m-1">
+          <div class="card border-secondary border-dashed mh-card">
+            <div class="card-body">
+              <h4 class="card-title">Анализ</h4>
+              <!-- slot -->
+            </div>
+          </div>
+        </div>
+        <div class="col-1 align-middle d-flex">
+          <ArrowLeft />
+        </div>
+        <div class="col p-1 m-1">
+          <div class="card border-secondary border-dashed mh-card">
+            <div class="card-body">
+              <h4 class="card-title">В процессе</h4>
+              <!-- slot -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+//
+import ArrowRight from "./Arrows/ArrowRight.vue";
+import ArrowLeft from "./Arrows/ArrowLeft.vue";
+import ArrowUp from "./Arrows/ArrowUp.vue";
+import ArrowDown from "./Arrows/ArrowDown.vue";
 
 @Options({
+  components: {
+    ArrowRight,
+    ArrowLeft,
+    ArrowUp,
+    ArrowDown,
+  },
   props: {
     msg: String,
   },
@@ -149,18 +133,15 @@ export default class HelloWorld extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-h3 {
-  margin: 40px 0 0;
+.mh-card {
+  min-height: 250px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.pic-arrow {
+  height: 100px;
+  width: 100px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+
+.border-dashed {
+  border-style: dashed !important;
 }
 </style>
