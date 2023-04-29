@@ -1,19 +1,19 @@
 <template>
-  <div class="col-8 m-1 p-1">
+  <div class="col-6 m-1 p-1">
     <div class="row m-1 p-1">
       <div class="col m-1 p-1">
         <div class="card border-primary mh-card">
           <div class="card-body">
             <h4 class="card-title">Список задач</h4>
-            <button class="btn btn-primary">
+            <button class="btn btn-primary" @click="addNewWork()">
               Добавить <span class="badge bg-primary">+</span>
             </button>
             <!--  -->
-            <div class="card border-primary m-1 p-1">
-              <div class="card-body">
-                <p>alfa</p>
-              </div>
-            </div>
+            <work-component
+              v-for="(work, index) in workList"
+              :key="index"
+              :workElement="work"
+            />
             <!--  -->
           </div>
         </div>
@@ -22,15 +22,16 @@
         <div class="card border-primary mh-card">
           <div class="card-body">
             <h4 class="card-title">Список приоритетных задач</h4>
-            <button class="btn btn-primary">
-              Добавить <span class="badge bg-primary">+</span>
+            <button class="btn btn-primary" @click="addNewPriorityWork()">
+              Добавить
+              <span class="badge bg-primary">+</span>
             </button>
             <!--  -->
-            <div class="card border-danger m-1 p-1">
-              <div class="card-body">
-                <p>gamma</p>
-              </div>
-            </div>
+            <work-component
+              v-for="(work, index) in priorityWorkList"
+              :key="index"
+              :workElement="work"
+            />
             <!--  -->
           </div>
         </div>
@@ -43,6 +44,8 @@
             <div class="card-body">
               <h4 class="card-title">Backlog</h4>
               <!-- slot -->
+              <dragable-target :isHidden="hideItemSlots" />
+              <!--  -->
             </div>
           </div>
         </div>
@@ -54,19 +57,7 @@
             <div class="card-body">
               <h4 class="card-title">Сбор данных</h4>
               <!-- slot -->
-              <div class="card border-primary m-1 p-1">
-                <div class="card-body">
-                  <p>alfa</p>
-                </div>
-              </div>
-              <div class="card border-primary m-1 p-1">
-                <div class="card-body">
-                  <p>beta</p>
-                </div>
-              </div>
-              <div class="card border-primary m-1 p-1 border-dashed">
-                <div class="card-body"></div>
-              </div>
+              <dragable-target :isHidden="hideItemSlots" />
               <!--  -->
             </div>
           </div>
@@ -88,6 +79,8 @@
             <div class="card-body">
               <h4 class="card-title">Анализ</h4>
               <!-- slot -->
+              <dragable-target :isHidden="hideItemSlots" />
+              <!--  -->
             </div>
           </div>
         </div>
@@ -99,6 +92,8 @@
             <div class="card-body">
               <h4 class="card-title">В процессе</h4>
               <!-- slot -->
+              <dragable-target :isHidden="hideItemSlots" />
+              <!--  -->
             </div>
           </div>
         </div>
@@ -114,6 +109,10 @@ import ArrowRight from "./Arrows/ArrowRight.vue";
 import ArrowLeft from "./Arrows/ArrowLeft.vue";
 import ArrowUp from "./Arrows/ArrowUp.vue";
 import ArrowDown from "./Arrows/ArrowDown.vue";
+import WorkComponent from "./WorkComponent.vue";
+import DragableTarget from "./DragableTarget.vue";
+//
+import { Work } from "./../models/Work";
 
 @Options({
   components: {
@@ -121,13 +120,37 @@ import ArrowDown from "./Arrows/ArrowDown.vue";
     ArrowLeft,
     ArrowUp,
     ArrowDown,
+    //
+    WorkComponent,
+    DragableTarget,
   },
   props: {
     msg: String,
   },
 })
 export default class HelloWorld extends Vue {
+  workList = new Array<Work>();
+  priorityWorkList = new Array<Work>();
+  collectingDataList = new Array<Work>();
+  inProgressList = new Array<Work>();
+  analyzingList = new Array<Work>();
+  backlogList = new Array<Work>();
+  //
+  hideItemSlots = false;
+  //
   msg!: string;
+
+  // mounted() {
+  // }
+  //
+  addNewWork(): void {
+    this.workList.push(new Work(""));
+  }
+  addNewPriorityWork(): void {
+    this.priorityWorkList.push(new Work("", true));
+    console.log(this.priorityWorkList);
+  }
+  //
 }
 </script>
 
@@ -143,5 +166,30 @@ export default class HelloWorld extends Vue {
 
 .border-dashed {
   border-style: dashed !important;
+}
+
+[draggable] {
+  user-select: none;
+}
+
+/**/
+.box {
+  border: 3px solid #666;
+  background-color: #ddd;
+  border-radius: 0.5em;
+  padding: 10px;
+  cursor: move;
+}
+
+.box.none {
+  border: none;
+  background-color: white;
+  border-radius: 0.5em;
+  padding: 10px;
+  cursor: crosshair;
+}
+
+.box.over {
+  border: 3px dotted #666;
 }
 </style>
