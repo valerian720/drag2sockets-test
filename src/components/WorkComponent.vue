@@ -6,6 +6,7 @@
   >
     <div class="card-body m-0 p-0">
       <input
+        :class="{ 'form-danger': workElement.isPriority }"
         type="text"
         class="form-control"
         name=""
@@ -31,3 +32,10 @@ export default class WorkComponent extends Vue {
   workElement!: Work;
 }
 </script>
+
+<style lang="less" scoped>
+.form-danger.form-control:focus {
+  border-color: #a72828;
+  box-shadow: 0 0 0 0.2rem rgba(167, 40, 40, 0.25);
+}
+</style>
