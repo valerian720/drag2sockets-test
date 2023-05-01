@@ -1,0 +1,1 @@
+vuese serve --open --outDir="public/docs"
